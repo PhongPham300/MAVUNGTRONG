@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
@@ -13,7 +12,7 @@ import { Settings } from './components/Settings';
 import { UserProfile } from './components/UserProfile';
 import { api } from './services/api';
 import { PlantingArea, PurchaseTransaction, FarmingActivity, Employee, LinkageStatusOption, SystemSettings, AppPermissions, Folder, SystemFile, SurveyRecord, PurchaseContract, BackupData } from './types';
-import { Loader2, Menu, Sprout } from 'lucide-react';
+import { Loader2, Menu, Sprout, AlertTriangle } from 'lucide-react';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -43,10 +42,14 @@ const App: React.FC = () => {
   
   const [isLoading, setIsLoading] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  
+  // New state for connection error
+  const [connectionError, setConnectionError] = useState<string | null>(null);
 
   // Optimized loadData
   const loadData = async () => {
     setIsLoading(true);
+    setConnectionError(null);
     try {
       // Use the new single-call method from API
       const data = await api.fetchAllData();
@@ -62,8 +65,9 @@ const App: React.FC = () => {
       setFiles(data.files);
       setSystemSettings(data.systemSettings);
       
-    } catch (error) { 
+    } catch (error: any) { 
       console.error("Lỗi tải dữ liệu:", error); 
+      setConnectionError(error.message || "Không thể kết nối với Google Sheet. Vui lòng kiểm tra Deployment.");
     } finally { 
       setIsLoading(false); 
     }
@@ -145,8 +149,10 @@ const App: React.FC = () => {
       // Ideally, the API methods return the new object, and we update state locally in the handlers below.
       if (successMsg) console.log(successMsg);
     } catch (e) {
-      alert("Thao tác thất bại. Vui lòng kiểm tra kết nối.");
+      alert("Thao tác thất bại. Vui lòng kiểm tra kết nối Google Sheet.");
       console.error(e);
+      // If error, try reloading to see if we lost connection
+      loadData();
     } finally {
       setIsLoading(false);
     }
@@ -219,6 +225,17 @@ const App: React.FC = () => {
           </div>
           <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold text-sm">{currentUser.name.charAt(0)}</div>
         </div>
+        
+        {/* CONNECTION ERROR BANNER */}
+        {connectionError && (
+          <div className="bg-red-50 border-b border-red-200 p-4 shrink-0 flex items-start gap-3">
+             <AlertTriangle className="text-red-600 shrink-0 mt-0.5" />
+             <div>
+               <h4 className="font-bold text-red-700">Lỗi kết nối CSDL (Google Sheet)</h4>
+               <p className="text-sm text-red-600 mt-1">{connectionError}</p>
+             </div>
+          </div>
+        )}
 
         <main className={`flex-1 p-4 md:p-8 ${activeTab === 'documents' ? 'overflow-hidden flex flex-col' : 'overflow-y-auto'}`}>
           {isLoading && (
