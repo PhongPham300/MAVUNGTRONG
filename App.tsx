@@ -7,7 +7,6 @@ import { PurchaseManagement } from './components/PurchaseManagement';
 import { FarmingManagement } from './components/FarmingManagement';
 import { EmployeeManagement } from './components/EmployeeManagement';
 import { DocumentManagement } from './components/DocumentManagement'; 
-import { AIInsights } from './components/AIInsights';
 import { Login } from './components/Login';
 import { Settings } from './components/Settings';
 import { UserProfile } from './components/UserProfile';
@@ -98,7 +97,7 @@ const App: React.FC = () => {
   const userPermissions: AppPermissions = useMemo(() => {
     if (!currentUser || !systemSettings) {
       return {
-        viewDashboard: false, viewSOP: false, viewSettings: false, viewInsights: false,
+        viewDashboard: false, viewSOP: false, viewSettings: false,
         viewArea: false, createArea: false, updateArea: false, deleteArea: false, approveLegal: false,
         viewFarming: false, createFarming: false, updateFarming: false, deleteFarming: false,
         viewPurchase: false, createPurchase: false, updatePurchase: false, deletePurchase: false, viewFinancials: false,
@@ -111,7 +110,7 @@ const App: React.FC = () => {
 
     if (currentUser.code === 'ADMIN' || currentUser.role === 'Quản trị viên') {
       return {
-        viewDashboard: true, viewSOP: true, viewSettings: true, viewInsights: true,
+        viewDashboard: true, viewSOP: true, viewSettings: true,
         viewArea: true, createArea: true, updateArea: true, deleteArea: true, approveLegal: true,
         viewFarming: true, createFarming: true, updateFarming: true, deleteFarming: true,
         viewPurchase: true, createPurchase: true, updatePurchase: true, deletePurchase: true, viewFinancials: true,
@@ -120,7 +119,7 @@ const App: React.FC = () => {
       };
     }
     return {
-        viewDashboard: true, viewSOP: false, viewSettings: false, viewInsights: false,
+        viewDashboard: true, viewSOP: false, viewSettings: false,
         viewArea: false, createArea: false, updateArea: false, deleteArea: false, approveLegal: false,
         viewFarming: false, createFarming: false, updateFarming: false, deleteFarming: false,
         viewPurchase: false, createPurchase: false, updatePurchase: false, deletePurchase: false, viewFinancials: false,
@@ -324,7 +323,6 @@ const App: React.FC = () => {
                    permissions={userPermissions}
                 />
               )}
-              {activeTab === 'insights' && <AIInsights areas={areas} purchases={purchases} />}
               {activeTab === 'settings' && systemSettings && (
                 <Settings 
                   linkageStatuses={linkageStatuses} systemSettings={systemSettings}

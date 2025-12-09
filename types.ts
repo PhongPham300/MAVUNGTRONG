@@ -52,7 +52,6 @@ export interface AppPermissions {
   viewDashboard: boolean;
   viewSOP: boolean;
   viewSettings: boolean; // Quyền truy cập cấu hình hệ thống
-  viewInsights: boolean;
 
   // Area (Vùng trồng)
   viewArea: boolean;
