@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { LayoutDashboard, Sprout, ShoppingCart, Sparkles, Settings, ClipboardList, Users, LogOut, KeyRound, FolderOpen, X, Workflow } from 'lucide-react';
 import { Employee, SystemSettings, AppPermissions } from '../types';
@@ -80,7 +79,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <Sprout className="w-12 h-12 text-green-300 mb-3" />
           )}
           <h1 className="text-xl font-bold leading-tight line-clamp-2">
-            {systemSettings?.companyInfo?.name || "AgriLink"}
+            {systemSettings?.companyInfo?.name || "Hoa Cương Group"}
           </h1>
           
           {/* User Profile Trigger */}

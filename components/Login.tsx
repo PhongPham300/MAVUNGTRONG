@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Sprout, Loader2, Phone, MapPin, Globe } from 'lucide-react';
 import { api } from '../services/api';
@@ -29,10 +28,10 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess, systemSettings }) 
         } else {
           // Lưu vào localStorage nếu chọn ghi nhớ
           if (rememberMe) {
-            localStorage.setItem('agrilink_user', JSON.stringify(user));
+            localStorage.setItem('hoacuong_user', JSON.stringify(user));
           } else {
             // Nếu không chọn thì xóa session cũ (nếu có) để đảm bảo an toàn
-            localStorage.removeItem('agrilink_user');
+            localStorage.removeItem('hoacuong_user');
           }
           onLoginSuccess(user);
         }
@@ -70,7 +69,7 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess, systemSettings }) 
           </div>
           
           <h1 className="text-2xl font-bold text-slate-800 uppercase px-4">
-            {company?.name || "HỆ THỐNG QUẢN LÝ NÔNG NGHIỆP"}
+            {company?.name || "HOA CƯƠNG GROUP"}
           </h1>
           <p className="text-slate-500 mt-2">Đăng nhập hệ thống quản lý</p>
         </div>

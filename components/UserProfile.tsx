@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Employee } from '../types';
 import { KeyRound, CheckCircle, X, Loader2 } from 'lucide-react';
@@ -49,7 +48,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ currentUser, isOpen, o
       setSuccess('Đổi mật khẩu thành công!');
       
       // Lưu lại vào localStorage để không bị logout nếu f5
-      localStorage.setItem('agrilink_user', JSON.stringify(updatedUser));
+      localStorage.setItem('hoacuong_user', JSON.stringify(updatedUser));
       
       setTimeout(() => {
         onClose();

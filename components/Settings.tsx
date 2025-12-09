@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { LinkageStatusOption, SystemSettings, ActivityTypeOption, CropTypeOption, ProductQualityOption, Role, AppPermissions, FieldConfig, BackupData } from '../types';
 import { Plus, Trash2, Save, Edit2, X, Settings as SettingsIcon, FileText, CheckCircle, List, Building2, Upload, Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight, ListOrdered, Type, Heading1, Sprout, Tag, Shield, Database, LayoutTemplate, Download, ArchiveRestore, ShoppingCart, AlignJustify } from 'lucide-react';
@@ -129,7 +128,7 @@ export const Settings: React.FC<SettingsProps> = ({
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `agrilink_backup_${new Date().toISOString().split('T')[0]}.json`;
+      a.download = `hoacuong_backup_${new Date().toISOString().split('T')[0]}.json`;
       a.click();
     } catch (e) { alert("Lỗi sao lưu"); }
   };

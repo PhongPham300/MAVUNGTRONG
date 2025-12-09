@@ -1,4 +1,3 @@
-
 import { PlantingArea, PurchaseTransaction, AreaStatus, FarmingActivity, Employee, LinkageStatusOption, SystemSettings, ActivityTypeOption, CropTypeOption, ProductQualityOption, Role, PriorityLevel, Folder, SystemFile, SurveyRecord, PurchaseContract, BackupData } from '../types';
 
 // TODO: Thay thế URL này bằng URL Web App của Google Apps Script của bạn
@@ -354,6 +353,27 @@ let MOCK_AREAS: PlantingArea[] = [
     approachStatus: 'Không liên kết được',
     legalStatus: 'Chưa xử lý'
   },
+  { 
+    id: '5', 
+    code: 'VN-DL-005', 
+    name: 'Trại Mắc ca Hoàng Liên', 
+    cropType: 'Mắc ca', 
+    hectares: 12.5, 
+    location: 'Lâm Hà, Lâm Đồng', 
+    owner: 'Hoàng Thị Liên',
+    phone: '0918888999',
+    farmers: [], 
+    status: AreaStatus.ACTIVE, 
+    estimatedYield: 18,
+    linkageStatus: 'Chờ ký',
+    documents: [],
+    priority: 'Ưu tiên 2',
+    appointmentDate: '2024-07-05',
+    appointmentNote: 'Khảo sát thực địa',
+    appointmentParticipants: [],
+    approachStatus: 'Chưa gặp',
+    legalStatus: 'Chưa xử lý'
+  },
 ];
 
 let MOCK_PURCHASES: PurchaseTransaction[] = [
@@ -422,10 +442,10 @@ let MOCK_FARMING_LOGS: FarmingActivity[] = [
 ];
 
 let MOCK_EMPLOYEES: Employee[] = [
-  { id: '300', code: 'ADMIN', name: 'Quản trị viên', role: 'Quản trị viên', phone: '0900000000', password: '123', email: 'admin@agrilink.com', status: 'Đang làm việc', joinDate: '2020-01-01', dob: '1985-05-15', identityCard: '012345678901', address: 'TP. HCM' },
-  { id: '301', code: 'NV-001', name: 'Trần Minh Tuấn', role: 'Kỹ thuật viên', phone: '0909123456', password: '123', email: 'tuan.kthuat@agrilink.com', status: 'Đang làm việc', joinDate: '2022-01-15', dob: '1990-01-01', identityCard: '098765432109', address: 'Lâm Đồng' },
-  { id: '302', code: 'NV-002', name: 'Nguyễn Thị Mai', role: 'Nhân viên Thu mua', phone: '0912345678', password: '123', email: 'mai.thumua@agrilink.com', status: 'Đang làm việc', joinDate: '2022-03-20', dob: '1995-10-20', identityCard: '079123456789', address: 'Bảo Lộc' },
-  { id: '303', code: 'NV-003', name: 'Lê Văn Hùng', role: 'Quản trị viên', phone: '0988777666', password: '123', email: 'hung.quanly@agrilink.com', status: 'Đang làm việc', joinDate: '2021-11-05', dob: '1988-12-12', identityCard: '068123123123', address: 'Di Linh' },
+  { id: '300', code: 'ADMIN', name: 'Quản trị viên', role: 'Quản trị viên', phone: '0900000000', password: '123', email: 'admin@hoacuonggroup.com', status: 'Đang làm việc', joinDate: '2020-01-01', dob: '1985-05-15', identityCard: '012345678901', address: 'TP. HCM' },
+  { id: '301', code: 'NV-001', name: 'Trần Minh Tuấn', role: 'Kỹ thuật viên', phone: '0909123456', password: '123', email: 'tuan.kthuat@hoacuonggroup.com', status: 'Đang làm việc', joinDate: '2022-01-15', dob: '1990-01-01', identityCard: '098765432109', address: 'Lâm Đồng' },
+  { id: '302', code: 'NV-002', name: 'Nguyễn Thị Mai', role: 'Nhân viên Thu mua', phone: '0912345678', password: '123', email: 'mai.thumua@hoacuonggroup.com', status: 'Đang làm việc', joinDate: '2022-03-20', dob: '1995-10-20', identityCard: '079123456789', address: 'Bảo Lộc' },
+  { id: '303', code: 'NV-003', name: 'Lê Văn Hùng', role: 'Quản trị viên', phone: '0988777666', password: '123', email: 'hung.quanly@hoacuonggroup.com', status: 'Đang làm việc', joinDate: '2021-11-05', dob: '1988-12-12', identityCard: '068123123123', address: 'Di Linh' },
 ];
 
 export const api = {

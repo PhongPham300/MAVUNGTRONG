@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
@@ -84,14 +83,14 @@ const App: React.FC = () => {
     };
     initApp();
 
-    const savedUser = localStorage.getItem('agrilink_user');
+    const savedUser = localStorage.getItem('hoacuong_user');
     if (savedUser) {
       try {
         const user = JSON.parse(savedUser);
         setCurrentUser(user);
       } catch (error) {
         console.error("Lỗi đọc dữ liệu đăng nhập:", error);
-        localStorage.removeItem('agrilink_user');
+        localStorage.removeItem('hoacuong_user');
       }
     }
   }, []);
@@ -142,7 +141,7 @@ const App: React.FC = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('agrilink_user');
+    localStorage.removeItem('hoacuong_user');
     setCurrentUser(null);
     setAreas([]); setPurchases([]); setEmployees([]);
     setFolders([]); setFiles([]);
@@ -246,7 +245,7 @@ const App: React.FC = () => {
             </button>
             <span className="font-bold text-lg text-green-800 flex items-center gap-1">
               <Sprout size={20} className="text-green-600"/>
-              {systemSettings?.companyInfo?.name || "AgriLink"}
+              {systemSettings?.companyInfo?.name || "Hoa Cương"}
             </span>
           </div>
           <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold text-sm">

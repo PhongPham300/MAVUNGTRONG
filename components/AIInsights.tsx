@@ -31,7 +31,7 @@ export const AIInsights: React.FC<AIInsightsProps> = ({ areas, purchases }) => {
         - Giao dịch thu mua gần đây: ${JSON.stringify(purchases.slice(-5).map(p => ({ ngay: p.date, khoi_luong: p.quantityKg, gia: p.pricePerKg, chat_luong: p.quality })))}
       `;
 
-      const systemInstruction = `Bạn là một chuyên gia nông nghiệp AI tư vấn cho ứng dụng AgriLink. 
+      const systemInstruction = `Bạn là một chuyên gia nông nghiệp AI tư vấn cho ứng dụng quản lý của Hoa Cương Group. 
       Nhiệm vụ của bạn là phân tích dữ liệu vùng trồng và thu mua để đưa ra lời khuyên. 
       Trả lời bằng Tiếng Việt, ngắn gọn, súc tích và tập trung vào hiệu quả kinh tế. Định dạng bằng Markdown.`;
 
