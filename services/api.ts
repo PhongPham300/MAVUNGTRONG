@@ -1,7 +1,7 @@
 import { PlantingArea, PurchaseTransaction, AreaStatus, FarmingActivity, Employee, LinkageStatusOption, SystemSettings, ActivityTypeOption, CropTypeOption, ProductQualityOption, Role, PriorityLevel, Folder, SystemFile, SurveyRecord, PurchaseContract, BackupData } from '../types';
 
 // TODO: Thay thế URL này bằng URL Web App của Google Apps Script của bạn
-const APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_PQnNtvqbjf-dPwkd03pMHayvwsTeKw-sAwhXQ7tD7zEnerpvWXjaH4rgC2XtFXPgjA/exec';
 
 // Dữ liệu cấu hình mặc định cho Tình trạng liên kết
 let MOCK_LINKAGE_STATUSES: LinkageStatusOption[] = [
