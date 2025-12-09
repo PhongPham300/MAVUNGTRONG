@@ -14,7 +14,9 @@
     "lucide-react": "^0.556.0",
     "@google/genai": "^1.31.0",
     "recharts": "^3.5.1",
-    "xlsx": "latest"
+    "xlsx": "latest",
+    "vite": "^7.2.7",
+    "@vitejs/plugin-react": "^5.1.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
