@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, (process as any).cwd(), '');
 
   return {
+    base: '/MAVUNGTRONG/'
     plugins: [react()],
     define: {
       // Quan trọng: Định nghĩa process.env để tránh lỗi "process is not defined"
