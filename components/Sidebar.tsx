@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, Sprout, ShoppingCart, Sparkles, Settings, ClipboardList, Users, LogOut, KeyRound, FolderOpen, X, Workflow } from 'lucide-react';
+import { LayoutDashboard, Sprout, ShoppingCart, Settings, ClipboardList, Users, LogOut, KeyRound, FolderOpen, X, Workflow } from 'lucide-react';
 import { Employee, SystemSettings, AppPermissions } from '../types';
 
 interface SidebarProps {
@@ -35,7 +35,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'purchases', label: 'Thu mua', icon: ShoppingCart, visible: permissions.viewPurchase },
     { id: 'documents', label: 'Kho tài liệu', icon: FolderOpen, visible: permissions.viewDocuments },
     { id: 'staff', label: 'Nhân viên', icon: Users, visible: permissions.viewStaff },
-    { id: 'insights', label: 'Trợ lý AI', icon: Sparkles, visible: permissions.viewInsights },
   ];
 
   const handleItemClick = (id: string) => {

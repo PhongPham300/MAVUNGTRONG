@@ -1,5 +1,5 @@
 {
-  "name": "MVT1",
+  "name": "Mã Vùng Trồng",
   "description": "Ứng dụng quản lý mã vùng trồng, liên kết hộ nông dân và thu mua nông sản, tích hợp phân tích AI.",
   "requestFramePermissions": []
 }

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { LinkageStatusOption, SystemSettings, ActivityTypeOption, CropTypeOption, ProductQualityOption, Role, AppPermissions, FieldConfig, BackupData } from '../types';
-import { Plus, Trash2, Save, Edit2, X, Settings as SettingsIcon, FileText, CheckCircle, List, Building2, Upload, Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight, ListOrdered, Type, Heading1, Sprout, Tag, Shield, Database, LayoutTemplate, Download, ArchiveRestore, ShoppingCart, AlignJustify } from 'lucide-react';
+import { Plus, Trash2, Save, Edit2, Settings as SettingsIcon, FileText, List, Building2, Upload, Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight, ListOrdered, AlignJustify, Sprout, Shield, Database, LayoutTemplate, Download, ArchiveRestore, ShoppingCart } from 'lucide-react';
 import { api } from '../services/api';
 
 interface SettingsProps {
@@ -166,8 +166,7 @@ export const Settings: React.FC<SettingsProps> = ({
       perms: [
         { k: 'viewDashboard', l: 'Xem Dashboard' }, 
         { k: 'viewSOP', l: 'Xem Quy trình' }, 
-        { k: 'viewSettings', l: 'Cấu hình hệ thống' },
-        { k: 'viewInsights', l: 'Trợ lý AI' }
+        { k: 'viewSettings', l: 'Cấu hình hệ thống' }
       ] 
     },
     { 

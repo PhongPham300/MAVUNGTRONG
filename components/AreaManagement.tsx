@@ -151,9 +151,20 @@ export const AreaManagement: React.FC<AreaManagementProps> = ({
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); if (validateAreaForm()) {
-      if (editingId) await onUpdateArea({ ...formData, id: editingId } as PlantingArea); else await onAddArea(formData as Omit<PlantingArea, 'id'>);
-      setIsModalOpen(false); resetForm();
+    e.preventDefault(); 
+    if (validateAreaForm()) {
+      try {
+        if (editingId) {
+          await onUpdateArea({ ...formData, id: editingId } as PlantingArea); 
+        } else {
+          await onAddArea(formData as Omit<PlantingArea, 'id'>);
+        }
+        setIsModalOpen(false); 
+        resetForm();
+      } catch (error) {
+        console.error("Submit error", error);
+        alert("Có lỗi xảy ra khi lưu. Vui lòng thử lại.");
+      }
     }
   };
 
@@ -302,7 +313,10 @@ export const AreaManagement: React.FC<AreaManagementProps> = ({
                <select className="px-3 py-2 border rounded-lg text-sm bg-white" value={filterCrop} onChange={(e) => setFilterCrop(e.target.value)}>
                   <option value="ALL">Cây trồng: Tất cả</option>{uniqueCrops.map(c => <option key={c} value={c}>{c}</option>)}
                </select>
-               {(searchTerm || filterStatus !== 'ALL' || filterCrop !== 'ALL') && <button onClick={clearFilters} className="px-3 py-2 text-red-500 hover:bg-red-50 rounded-lg"><X size={18} /></button>}
+               <select className="px-3 py-2 border rounded-lg text-sm bg-white" value={filterProvince} onChange={(e) => setFilterProvince(e.target.value)}>
+                  <option value="ALL">Tỉnh: Tất cả</option>{uniqueProvinces.map(p => <option key={p} value={p}>{p}</option>)}
+               </select>
+               {(searchTerm || filterStatus !== 'ALL' || filterCrop !== 'ALL' || filterProvince !== 'ALL') && <button onClick={clearFilters} className="px-3 py-2 text-red-500 hover:bg-red-50 rounded-lg"><X size={18} /></button>}
             </div>
           </div>
           

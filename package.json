@@ -1,5 +1,5 @@
 {
-  "name": "mvt1",
+  "name": "mã-vùng-trồng",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -16,7 +16,6 @@
     "xlsx": "latest",
     "vite": "^7.2.7",
     "@vitejs/plugin-react": "^5.1.2",
-    "@supabase/supabase-js": "^2.45.0",
     "@google/genai": "^1.32.0"
   },
   "devDependencies": {
